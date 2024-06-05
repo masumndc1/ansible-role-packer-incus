@@ -1,0 +1,5 @@
+---
+- name: initialize packer for incus
+  shell:
+    cmd: packer plugins install github.com/bketelsen/incus
+  when: ansible_distribution == "Ubuntu"
