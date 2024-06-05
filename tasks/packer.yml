@@ -2,6 +2,7 @@
 - name: Install gpg key
   apt_key:
     url: https://apt.releases.hashicorp.com/gpg
+    keyring: /etc/apt/trusted.gpg.d/packer.gpg
   when: ansible_distribution == "Ubuntu"
 
 - name: Add apt repository for packer
