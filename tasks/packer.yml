@@ -1,19 +1,19 @@
 ---
 - name: Install gpg key
-  apt_key: 
+  apt_key:
     url: https://apt.releases.hashicorp.com/gpg
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == "Ubuntu"
 
 - name: Add apt repository for packer
   apt_repository:
     repo: deb https://apt.releases.hashicorp.com $(lsb_release -cs) main
     state: present
     filename: packer.repo
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == "Ubuntu"
 
 - name: install packer in Ubuntu
   apt:
     name: packer
     update_cache: yes
     state: present
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == "Ubuntu"
