@@ -1,3 +1,4 @@
 ---
 # tasks file for ansible-role-packer-incus
-- include_tasks: packer.yml
+- include_tasks: packer_install.yml
+- include_tasks: packer_init.yml
