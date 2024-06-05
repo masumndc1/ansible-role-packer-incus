@@ -6,7 +6,7 @@
 
 - name: Add apt repository for packer
   apt_repository:
-    repo: deb https://apt.releases.hashicorp.com $(lsb_release -cs) main
+    repo: deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main
     state: present
     filename: packer.repo
   when: ansible_distribution == "Ubuntu"
