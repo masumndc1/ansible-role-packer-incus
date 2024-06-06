@@ -1,6 +1,6 @@
 ---
 - name: get list of all images
-  command: 'incus image list -f csv | cut -f1 -d,'
+  command: 'incus image list -f csv'
   register: image_list
 
 - name: build alma8 image by packer
