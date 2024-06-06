@@ -5,3 +5,38 @@
     chdir: /tmp
   become: yes
   tags: alma8
+
+- name: build alma9 image by packer
+  command: 'packer build alma9.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  tags: alma9
+
+- name: build opensuse image by packer
+  command: 'packer build opensuse.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  tags: opensuse
+
+- name: build ubuntu 20 image by packer
+  command: 'packer build ubuntu20.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  tags: ubu20
+
+- name: build ubuntu 22 image by packer
+  command: 'packer build ubuntu22.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  tags: ubu22
+
+- name: build ubuntu 24 image by packer
+  command: 'packer build ubuntu24.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  tags: ubu24
