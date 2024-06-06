@@ -1,0 +1,28 @@
+packer {
+  required_plugins {
+    incus = {
+      source  = "github.com/bketelsen/incus"
+      version = "~> 1"
+    }
+  }
+}
+
+source "incus" "incus-opensuse" {
+  image = "images:opensuse/tumbleweed/arm64"
+  output_image = "opensuse-packer"
+  reuse = true
+  publish_properties = {
+    "description" = "incus opensuse repackage with Packer"
+  }
+}
+
+build {
+  sources = ["incus.incus-opensuse"]
+  provisioner "shell" {
+    scripts = [
+      "user.sh",
+      "packages.sh",
+      "service.sh"
+    ]
+  }
+}
