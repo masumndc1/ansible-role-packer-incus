@@ -1,9 +1,10 @@
 # ansible-role-packer-incus
 
-This is an ansible role. this role will build alma8, alma9, opensuse tumbleweed, ubuntu 20, ubuntu 22, ubuntu 24 incus images by packer.
+This is an ansible role. This role will build alma8, alma9,
+ubuntu 20, ubuntu 22, ubuntu 24, opensuse tumbleweed incus images by packer.
 
 ## usages:
-add this role with your image builde server.
+Add this role with your image builde server.
 
 ```
 cat incus-image.yml
@@ -15,7 +16,6 @@ cat incus-image.yml
   roles:
     - ansible-role-packer-incus
 ```
-
 
 ## License
 BSD
