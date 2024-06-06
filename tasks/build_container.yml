@@ -1,9 +1,15 @@
 ---
+- name: get list of all images
+  command: 'incus image list -f csv | cut -f1 -d,'
+  register: image_list
+
 - name: build alma8 image by packer
   command: 'packer build alma8.pkr.hcl'
   args:
     chdir: /tmp
   become: yes
+  when:
+    - '"alma8-packer" not in image_list.stdout'
   tags: alma8
 
 - name: build alma9 image by packer
@@ -11,6 +17,8 @@
   args:
     chdir: /tmp
   become: yes
+  when:
+    - '"alma9-packer" not in image_list.stdout'
   tags: alma9
 
 - name: build opensuse image by packer
@@ -18,6 +26,8 @@
   args:
     chdir: /tmp
   become: yes
+  when:
+    - '"opensuse-packer" not in image_list.stdout'
   tags: opensuse
 
 - name: build ubuntu 20 image by packer
@@ -25,6 +35,8 @@
   args:
     chdir: /tmp
   become: yes
+  when:
+    - '"ubu20-packer" not in image_list.stdout'
   tags: ubu20
 
 - name: build ubuntu 22 image by packer
@@ -32,6 +44,8 @@
   args:
     chdir: /tmp
   become: yes
+  when:
+    - '"ubu22-packer" not in image_list.stdout'
   tags: ubu22
 
 - name: build ubuntu 24 image by packer
@@ -39,4 +53,6 @@
   args:
     chdir: /tmp
   become: yes
+  when:
+    - '"ubu24-packer" not in image_list.stdout'
   tags: ubu24
