@@ -1,0 +1,28 @@
+packer {
+  required_plugins {
+    incus = {
+      source  = "github.com/bketelsen/incus"
+      version = "~> 1"
+    }
+  }
+}
+
+source "incus" "incus-ubu22" {
+  image = "images:ubuntu/jammy/arm64"
+  output_image = "ubu22-packer"
+  reuse = true
+  publish_properties = {
+    "description" = "incus ubuntu 22 repackage with Packer"
+  }
+}
+
+build {
+  sources = ["incus.incus-ubu22"]
+  provisioner "shell" {
+    scripts = [
+      "user.sh",
+      "packages.sh",
+      "service.sh"
+    ]
+  }
+}
