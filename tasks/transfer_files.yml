@@ -14,6 +14,11 @@
     src: files/service.sh
     dest: /tmp/service.sh
 
+- name: copy service bash file for ubuntu 24
+  copy:
+    src: files/service_ubu24.sh
+    dest: /tmp/service_ubu24.sh
+
 - name: transfer alma8 packer template file
   template:
     src: templates/alma8.pkr.hcl.j2
