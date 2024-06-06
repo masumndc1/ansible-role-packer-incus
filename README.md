@@ -2,8 +2,12 @@
 
 This is an ansible role. This role will build alma8, alma9,
 ubuntu 20, ubuntu 22, ubuntu 24, opensuse tumbleweed incus images by packer.
-This images will have an pre-defined user, sudo right to that user,
-add public key of that user in ssh folder, and ssh service running.
+
+This images will have:
+  - an pre-defined user installed,
+  - sudo right to that user,
+  - add public key of that user in ssh folder,
+  - and ssh service running.
 
 ## usages:
 Add this role with your image builde server.
@@ -19,7 +23,7 @@ cat incus-image.yml
     - ansible-role-packer-incus
 ```
 
-For example,
+For example:
 
 ```
 root@image-server # incus image list
