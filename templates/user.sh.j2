@@ -1,6 +1,6 @@
 #!/bin/bash
 
 useradd {{ user }}
-echo "{{ user }} ALL=(ALL) NOPASSWD:ALL" }} user }} >/etc/sudoers.d/10_{{
+echo "{{ user }} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_{{ user }}
 mkdir /home/{{ user }}/.ssh
-echo "{{ user_pub_key }}" user }}/.ssh/authorized_keys >>/home/{{
+echo "{{ user_pub_key }}" >> /home/{{ user }}/.ssh/authorized_keys
