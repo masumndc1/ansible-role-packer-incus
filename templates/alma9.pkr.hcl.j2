@@ -1,0 +1,28 @@
+packer {
+  required_plugins {
+    incus = {
+      source  = "github.com/bketelsen/incus"
+      version = "~> 1"
+    }
+  }
+}
+
+source "incus" "incus-alma9" {
+  image = "images:almalinux/9/arm64"
+  output_image = "alma9-packer"
+  reuse = true
+  publish_properties = {
+    "description" = "incus alma9 repackage with Packer"
+  }
+}
+
+build {
+  sources = ["incus.incus-alma9"]
+  provisioner "shell" {
+    scripts = [
+      "user.sh",
+      "packages.sh",
+      "service.sh"
+    ]
+  }
+}
