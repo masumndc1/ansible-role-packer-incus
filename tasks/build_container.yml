@@ -1,0 +1,7 @@
+---
+- name: build alma8 image by packer
+  command: 'packer build alma8.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  tags: alma8
