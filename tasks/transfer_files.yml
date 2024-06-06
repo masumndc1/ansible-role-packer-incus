@@ -18,3 +18,28 @@
   template:
     src: templates/alma8.pkr.hcl.j2
     dest: /tmp/alma8.pkr.hcl
+
+- name: transfer alma9 packer template file
+  template:
+    src: templates/alma9.pkr.hcl.j2
+    dest: /tmp/alma9.pkr.hcl
+
+- name: transfer opensuse packer template file
+  template:
+    src: templates/opensuse.pkr.hcl.j2
+    dest: /tmp/opensuse.pkr.hcl
+
+- name: transfer ubuntu20 packer template file
+  template:
+    src: templates/ubuntu20.pkr.hcl.j2
+    dest: /tmp/ubuntu20.pkr.hcl
+
+- name: transfer ubuntu22 packer template file
+  template:
+    src: templates/ubuntu22.pkr.hcl.j2
+    dest: /tmp/ubuntu22.pkr.hcl
+
+- name: transfer ubuntu24 packer template file
+  template:
+    src: templates/ubuntu24.pkr.hcl.j2
+    dest: /tmp/ubuntu24.pkr.hcl
