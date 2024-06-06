@@ -1,0 +1,20 @@
+---
+- name: transfer user bash file
+  template:
+    src: templates/user.sh.j2
+    dest: /tmp/user.sh
+
+- name: copy packages bash file
+  copy:
+    src: files/packages.sh
+    dest: /tmp/packages.sh
+
+- name: copy service bash file
+  copy:
+    src: files/service.sh
+    dest: /tmp/service.sh
+
+- name: transfer alma8 packer template file
+  template:
+    src: templates/alma8.pkr.hcl.j2
+    dest: /tmp/alma8.pkr.hcl
