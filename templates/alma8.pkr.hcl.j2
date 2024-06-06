@@ -10,9 +10,9 @@ packer {
 source "incus" "incus-alma8" {
   image = "images:almalinux/8/arm64"
   output_image = "alma8-packer"
-  publish_properties = [
+  publish_properties = {
     "description" = "incus alma8 repackage with Packer"
-  ] 
+  }
 }
 
 build {
