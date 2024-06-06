@@ -1,0 +1,28 @@
+packer {
+  required_plugins {
+    incus = {
+      source  = "github.com/bketelsen/incus"
+      version = "~> 1"
+    }
+  }
+}
+
+source "incus" "incus-ubu20" {
+  image = "images:ubuntu/focal/arm64"
+  output_image = "ubu20-packer"
+  reuse = true
+  publish_properties = {
+    "description" = "incus ubuntu 20 repackage with Packer"
+  }
+}
+
+build {
+  sources = ["incus.incus-ubu20"]
+  provisioner "shell" {
+    scripts = [
+      "user.sh",
+      "packages.sh",
+      "service.sh"
+    ]
+  }
+}
