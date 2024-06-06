@@ -1,0 +1,28 @@
+packer {
+  required_plugins {
+    incus = {
+      source  = "github.com/bketelsen/incus"
+      version = "~> 1"
+    }
+  }
+}
+
+source "incus" "incus-ubu24" {
+  image = "images:ubuntu/noble/arm64"
+  output_image = "ubu24-packer"
+  reuse = true
+  publish_properties = {
+    "description" = "incus ubuntu 24 repackage with Packer"
+  }
+}
+
+build {
+  sources = ["incus.incus-ubu24"]
+  provisioner "shell" {
+    scripts = [
+      "user.sh",
+      "packages.sh",
+      "service.sh"
+    ]
+  }
+}
