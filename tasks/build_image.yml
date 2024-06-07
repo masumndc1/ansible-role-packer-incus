@@ -21,6 +21,15 @@
     - '"alma9-packer" not in image_list.stdout'
   tags: alma9
 
+- name: build centos 9-stream image by packer
+  command: 'packer build centos9.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  when:
+    - '"centos9-packer" not in image_list.stdout'
+  tags: centos9
+
 - name: build opensuse image by packer
   command: 'packer build opensuse.pkr.hcl'
   args:
@@ -29,6 +38,24 @@
   when:
     - '"opensuse-packer" not in image_list.stdout'
   tags: opensuse
+
+- name: build rocky8 image by packer
+  command: 'packer build rocky8.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  when:
+    - '"rocky8-packer" not in image_list.stdout'
+  tags: rocky8
+
+- name: build rocky9 image by packer
+  command: 'packer build rocky9.pkr.hcl'
+  args:
+    chdir: /tmp
+  become: yes
+  when:
+    - '"rocky9-packer" not in image_list.stdout'
+  tags: rocky9
 
 - name: build ubuntu 20 image by packer
   command: 'packer build ubuntu20.pkr.hcl'
