@@ -1,0 +1,28 @@
+packer {
+  required_plugins {
+    incus = {
+      source  = "github.com/bketelsen/incus"
+      version = "~> 1"
+    }
+  }
+}
+
+source "incus" "incus-centos9" {
+  image = "images:centos/9-stream/arm64"
+  output_image = "centos9-packer"
+  reuse = true
+  publish_properties = {
+    "description" = "incus centos 9-stream repackage with Packer"
+  }
+}
+
+build {
+  sources = ["incus.incus-centos9"]
+  provisioner "shell" {
+    scripts = [
+      "user.sh",
+      "packages.sh",
+      "service.sh"
+    ]
+  }
+}
