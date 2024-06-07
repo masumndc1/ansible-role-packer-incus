@@ -1,0 +1,28 @@
+packer {
+  required_plugins {
+    incus = {
+      source  = "github.com/bketelsen/incus"
+      version = "~> 1"
+    }
+  }
+}
+
+source "incus" "incus-rocky8" {
+  image = "images:rockylinux/8/arm64"
+  output_image = "rocky8-packer"
+  reuse = true
+  publish_properties = {
+    "description" = "incus rocky 8 repackage with Packer"
+  }
+}
+
+build {
+  sources = ["incus.incus-rocky8"]
+  provisioner "shell" {
+    scripts = [
+      "user.sh",
+      "packages.sh",
+      "service.sh"
+    ]
+  }
+}
