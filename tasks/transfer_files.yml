@@ -29,10 +29,25 @@
     src: templates/alma9.pkr.hcl.j2
     dest: /tmp/alma9.pkr.hcl
 
+- name: transfer centos 9-stream packer template file
+  template:
+    src: templates/centos9.pkr.hcl.j2
+    dest: /tmp/centos9.pkr.hcl
+
 - name: transfer opensuse packer template file
   template:
     src: templates/opensuse.pkr.hcl.j2
     dest: /tmp/opensuse.pkr.hcl
+
+- name: transfer rocky linux 8 packer template file
+  template:
+    src: templates/rocky8.pkr.hcl.j2
+    dest: /tmp/rocky8.pkr.hcl
+
+- name: transfer rocky linux 9 packer template file
+  template:
+    src: templates/rocky9.pkr.hcl.j2
+    dest: /tmp/rocky9.pkr.hcl
 
 - name: transfer ubuntu20 packer template file
   template:
