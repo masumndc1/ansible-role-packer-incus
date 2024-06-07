@@ -8,7 +8,7 @@ packer {
 }
 
 source "incus" "incus-centos9" {
-  image = "images:centos/9-stream/arm64"
+  image = "images:centos/9-Stream/arm64"
   output_image = "centos9-packer"
   reuse = true
   publish_properties = {
