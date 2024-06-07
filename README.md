@@ -1,6 +1,6 @@
 # ansible-role-packer-incus
 
-This is an ansible role. This role will build alma8, alma9,
+This is an ansible role. This role will build alma8, alma9, centos9-Stream, rocky 8, rocky9,
 ubuntu 20, ubuntu 22, ubuntu 24, opensuse tumbleweed incus images by packer.
 
 This images will have:
