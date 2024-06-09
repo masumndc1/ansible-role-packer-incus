@@ -1,20 +1,41 @@
 ---
-- name: Install gpg key
-  apt_key:
+- name: Add gpg key of hashicorp
+  ansible.builtin.apt_key:
     url: https://apt.releases.hashicorp.com/gpg
-    keyring: /etc/apt/trusted.gpg.d/packer.gpg
-    validate_certs: false
-  when: ansible_distribution == "Ubuntu"
+    state: present
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Add apt repository for packer
-  apt_repository:
-    repo: deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.releases.hashicorp.com bionic main
     state: present
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == 'Ubuntu' and
+        ansible_distribution_release == 'bionic'
+
+- name: Add apt repository for packer
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.releases.hashicorp.com focal main
+    state: present
+  when: ansible_distribution == 'Ubuntu' and
+        ansible_distribution_release == 'focal'
+
+- name: Add apt repository for packer
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.releases.hashicorp.com jammy main
+    state: present
+  when: ansible_distribution == 'Ubuntu' and
+        ansible_distribution_release == 'jammy'
+
+- name: Add apt repository for packer
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.releases.hashicorp.com noble main
+    state: present
+  when: ansible_distribution == 'Ubuntu' and
+        ansible_distribution_release == 'noble'
 
 - name: install packer in Ubuntu
   apt:
-    name: packer
+    name: ['packer']
+    state: latest
     update_cache: yes
-    state: present
   when: ansible_distribution == "Ubuntu"
