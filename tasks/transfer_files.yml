@@ -18,53 +18,64 @@
   copy:
     src: files/service_ubu24.sh
     dest: /tmp/service_ubu24.sh
+  tags: ubu24
 
 - name: transfer debian12 packer template file
   template:
     src: templates/debian12.pkr.hcl.j2
     dest: /tmp/debian12.pkr.hcl
+  tags: debian12
 
 - name: transfer alma8 packer template file
   template:
     src: templates/alma8.pkr.hcl.j2
     dest: /tmp/alma8.pkr.hcl
+  tags: alma8
 
 - name: transfer alma9 packer template file
   template:
     src: templates/alma9.pkr.hcl.j2
     dest: /tmp/alma9.pkr.hcl
+  tags: alma9
 
 - name: transfer centos 9-stream packer template file
   template:
     src: templates/centos9.pkr.hcl.j2
     dest: /tmp/centos9.pkr.hcl
+  tags: centos9
 
 - name: transfer opensuse packer template file
   template:
     src: templates/opensuse.pkr.hcl.j2
     dest: /tmp/opensuse.pkr.hcl
+  tags: opensuse
 
 - name: transfer rocky linux 8 packer template file
   template:
     src: templates/rocky8.pkr.hcl.j2
     dest: /tmp/rocky8.pkr.hcl
+  tags: rocky8
 
 - name: transfer rocky linux 9 packer template file
   template:
     src: templates/rocky9.pkr.hcl.j2
     dest: /tmp/rocky9.pkr.hcl
+  tags: rocky9
 
 - name: transfer ubuntu20 packer template file
   template:
     src: templates/ubuntu20.pkr.hcl.j2
     dest: /tmp/ubuntu20.pkr.hcl
+  tags: ubu20
 
 - name: transfer ubuntu22 packer template file
   template:
     src: templates/ubuntu22.pkr.hcl.j2
     dest: /tmp/ubuntu22.pkr.hcl
+  tags: ubu22
 
 - name: transfer ubuntu24 packer template file
   template:
     src: templates/ubuntu24.pkr.hcl.j2
     dest: /tmp/ubuntu24.pkr.hcl
+  tags: ubu24
