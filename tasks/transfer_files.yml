@@ -19,6 +19,11 @@
     src: files/service_ubu24.sh
     dest: /tmp/service_ubu24.sh
 
+- name: transfer debian12 packer template file
+  template:
+    src: templates/debian12.pkr.hcl.j2
+    dest: /tmp/debian12.pkr.hcl
+
 - name: transfer alma8 packer template file
   template:
     src: templates/alma8.pkr.hcl.j2
