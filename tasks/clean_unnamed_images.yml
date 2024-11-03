@@ -1,0 +1,7 @@
+---
+- name: clean title less images
+  script: files/inc_img_rm.py
+  args:
+    executable: python3
+  when:
+    - clean_untitled_images: True

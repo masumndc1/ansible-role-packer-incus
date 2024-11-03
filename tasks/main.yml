@@ -3,3 +3,4 @@
 - include_tasks: packer_install.yml
 - include_tasks: transfer_files.yml
 - include_tasks: build_image.yml
+- include_tasks: clean_unnamed_images.yml

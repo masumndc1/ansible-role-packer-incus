@@ -2,3 +2,4 @@
 # defaults file for ansible-role-packer-incus
 user: "masum"
 user_pub_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1BdRWmJL0fFpehq0QsQ7+IchlGYRE+UDGGpvnorhuP khuddin@MacBook-Air-3.local"
+clean_untitled_images: False
