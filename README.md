@@ -1,3 +1,5 @@
+[![Ruff](https://github.com/masumndc1/ansible-role-packer-incus/actions/workflows/ruff-ubuntu.yml/badge.svg)](https://github.com/masumndc1/ansible-role-packer-incus/actions/workflows/ruff-ubuntu.yml)
+
 # ansible-role-packer-incus
 
 This is an ansible role. This role will build alma8, alma9, centos9-Stream, 
