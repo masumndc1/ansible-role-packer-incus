@@ -4,4 +4,4 @@
   args:
     executable: python3
   when:
-    - clean_untitled_images: True
+    - clean_untitled_images | bool
