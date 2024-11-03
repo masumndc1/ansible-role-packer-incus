@@ -1,0 +1,28 @@
+packer {
+  required_plugins {
+    incus = {
+      source  = "github.com/bketelsen/incus"
+      version = "~> 1"
+    }
+  }
+}
+
+source "incus" "incus-debian12" {
+  image = "images:debian/bookworm/arm64"
+  output_image = "debian12-packer"
+  reuse = true
+  publish_properties = {
+    "description" = "incus debian12 repackage with Packer"
+  }
+}
+
+build {
+  sources = ["incus.incus-debian12"]
+  provisioner "shell" {
+    scripts = [
+      "user.sh",
+      "packages.sh",
+      "service.sh"
+    ]
+  }
+}
