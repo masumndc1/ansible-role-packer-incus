@@ -26,6 +26,12 @@
     dest: /tmp/debian12.pkr.hcl
   tags: debian12
 
+- name: transfer debian13 packer template file
+  template:
+    src: templates/debian13.pkr.hcl.j2
+    dest: /tmp/debian13.pkr.hcl
+  tags: debian13
+
 - name: transfer alma8 packer template file
   template:
     src: templates/alma8.pkr.hcl.j2
