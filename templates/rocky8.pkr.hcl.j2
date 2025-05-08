@@ -8,7 +8,11 @@ packer {
 }
 
 source "incus" "incus-rocky8" {
+  {% if ansible_facts['architecture'] == 'aarch64' %}
   image = "images:rockylinux/8/arm64"
+  {% elif ansible_facts['architecture'] == 'amd64' %}
+  image = "images:rockylinux/8/amd64"
+  {% endif %}
   output_image = "rocky8-packer"
   reuse = true
   publish_properties = {

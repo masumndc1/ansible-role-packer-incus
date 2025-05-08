@@ -7,21 +7,21 @@ packer {
   }
 }
 
-source "incus" "incus-ubu20" {
+source "incus" "incus-debian13" {
   {% if ansible_facts['architecture'] == 'aarch64' %}
-  image = "images:ubuntu/focal/arm64"
+  image = "images:debian/trixie/arm64"
   {% elif ansible_facts['architecture'] == 'amd64' %}
-  image = "images:ubuntu/focal/amd64"
+  image = "images:debian/trixie/amd64"
   {% endif %}
-  output_image = "ubu20-packer"
+  output_image = "debian13-packer"
   reuse = true
   publish_properties = {
-    "description" = "incus ubuntu 20 repackage with Packer"
+    "description" = "incus debian13 repackage with Packer"
   }
 }
 
 build {
-  sources = ["incus.incus-ubu20"]
+  sources = ["incus.incus-debian13"]
   provisioner "shell" {
     scripts = [
       "user.sh",
