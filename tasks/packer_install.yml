@@ -33,6 +33,13 @@
   when: ansible_distribution == 'Ubuntu' and
         ansible_distribution_release == 'noble'
 
+- name: Add apt repository for packer
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.releases.hashicorp.com plucky main
+    state: present
+  when: ansible_distribution == 'Ubuntu' and
+        ansible_distribution_release == 'plucky'
+
 - name: install packer in Ubuntu
   apt:
     name: ['packer']
