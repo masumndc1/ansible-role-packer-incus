@@ -44,7 +44,7 @@
 
 - name: Add apt repository for packer
   ansible.builtin.apt_repository:
-    repo: "deb [arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com bookworm main"
+    repo: "deb [arch={{ arch }} signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com bookworm main"
     state: present
     filename: hashicorp
   when: ansible_distribution == 'Debian' and (
