@@ -2,7 +2,7 @@
 - name: Add gpg key of hashicorp
   ansible.builtin.get_url:
     url: https://apt.releases.hashicorp.com/gpg
-    dest: /etc/apt/trusted.gpg.d
+    dest: /usr/share/keyrings/hashicorp-archive-keyring.gpg
     mode: '0644'
   when: ansible_distribution == 'Ubuntu' or
     ansible_distribution == 'Debian'
