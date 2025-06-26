@@ -3,7 +3,8 @@
   ansible.builtin.apt_key:
     url: https://apt.releases.hashicorp.com/gpg
     state: present
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_distribution == 'Ubuntu' or
+    ansible_distribution == 'Debian'
 
 - name: Add apt repository for packer
   ansible.builtin.apt_repository:
@@ -40,9 +41,24 @@
   when: ansible_distribution == 'Ubuntu' and
         ansible_distribution_release == 'plucky'
 
+- name: Add apt repository for packer
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.releases.hashicorp.com bookworm main
+    state: present
+  when: ansible_distribution == 'Debian' and
+        ansible_distribution_release == 'bookworm'
+
+- name: Add apt repository for packer
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.releases.hashicorp.com trixie main
+    state: present
+  when: ansible_distribution == 'Debian' and
+        ansible_distribution_release == 'trixie'
+
 - name: install packer in Ubuntu
   apt:
     name: ['packer']
     state: latest
     update_cache: yes
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_distribution == "Ubuntu" or
+    ansible_distribution == 'Debian'
