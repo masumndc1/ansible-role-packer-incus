@@ -46,15 +46,9 @@
   ansible.builtin.apt_repository:
     repo: deb https://apt.releases.hashicorp.com bookworm main
     state: present
-  when: ansible_distribution == 'Debian' and
-        ansible_distribution_release == 'bookworm'
-
-- name: Add apt repository for packer
-  ansible.builtin.apt_repository:
-    repo: deb https://apt.releases.hashicorp.com trixie main
-    state: present
-  when: ansible_distribution == 'Debian' and
-        ansible_distribution_release == 'trixie'
+  when: ansible_distribution == 'Debian' and (
+        ansible_distribution_release == 'bookworm' or
+        ansible_distribution_release == 'trixie' )
 
 - name: install packer in Ubuntu
   apt:
