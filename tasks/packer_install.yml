@@ -8,7 +8,7 @@
 
 - name: Add apt repository for packer
   ansible.builtin.apt_repository:
-    repo: "deb [arch={{ arch }} signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ release }} main"
+    repo: "deb [arch={{ arch }} signed-by=/etc/apt/trusted.gpg.d/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com {{ release }} main"
     state: present
     filename: hashicorp
   when: ansible_distribution == 'Ubuntu'
