@@ -59,6 +59,10 @@ If want to remove untitled, unaliased images
 ```
 ansible-playbook -i inventories/hosts incus-image.yml -e "clean_untitled_images=true"
 ```
+
+## Compatability
+This role was tested against Debian 12 (bookworm), Debian 13 (trixie) and Ubuntu 24.04 (Noble Numbat)
+
 ## License
 BSD
 
