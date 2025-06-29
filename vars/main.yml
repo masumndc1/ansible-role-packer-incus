@@ -1,2 +1,6 @@
 ---
 # vars file for ansible-role-packer-incus
+arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'amd64' }}"
+release: "{{ ansible_distribution_release if ansible_distribution == 'Ubuntu' else 'bookworm' }}"
+
+

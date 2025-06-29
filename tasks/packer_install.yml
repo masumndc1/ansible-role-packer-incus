@@ -1,44 +1,18 @@
 ---
 - name: Add gpg key of hashicorp
-  ansible.builtin.apt_key:
+  ansible.builtin.get_url:
     url: https://apt.releases.hashicorp.com/gpg
-    state: present
+    dest: /etc/apt/trusted.gpg.d/hashicorp-archive-keyring.asc
   when: ansible_distribution == 'Ubuntu'
+     or ansible_distribution == 'Debian'
 
 - name: Add apt repository for packer
   ansible.builtin.apt_repository:
-    repo: deb https://apt.releases.hashicorp.com bionic main
+    repo: "deb [arch={{ arch }} signed-by=/etc/apt/trusted.gpg.d/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com {{ release }} main"
     state: present
-  when: ansible_distribution == 'Ubuntu' and
-        ansible_distribution_release == 'bionic'
-
-- name: Add apt repository for packer
-  ansible.builtin.apt_repository:
-    repo: deb https://apt.releases.hashicorp.com focal main
-    state: present
-  when: ansible_distribution == 'Ubuntu' and
-        ansible_distribution_release == 'focal'
-
-- name: Add apt repository for packer
-  ansible.builtin.apt_repository:
-    repo: deb https://apt.releases.hashicorp.com jammy main
-    state: present
-  when: ansible_distribution == 'Ubuntu' and
-        ansible_distribution_release == 'jammy'
-
-- name: Add apt repository for packer
-  ansible.builtin.apt_repository:
-    repo: deb https://apt.releases.hashicorp.com noble main
-    state: present
-  when: ansible_distribution == 'Ubuntu' and
-        ansible_distribution_release == 'noble'
-
-- name: Add apt repository for packer
-  ansible.builtin.apt_repository:
-    repo: deb https://apt.releases.hashicorp.com plucky main
-    state: present
-  when: ansible_distribution == 'Ubuntu' and
-        ansible_distribution_release == 'plucky'
+    filename: hashicorp
+  when: ansible_distribution == 'Ubuntu'
+     or ansible_distribution == 'Debian'
 
 - name: install packer in Ubuntu
   apt:
@@ -46,3 +20,4 @@
     state: latest
     update_cache: yes
   when: ansible_distribution == "Ubuntu"
+     or ansible_distribution == 'Debian'
