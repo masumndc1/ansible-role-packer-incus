@@ -3,7 +3,7 @@
 # ansible-role-packer-incus
 
 This is an ansible role. This role will build alma8, alma9, centos9-Stream,
-debian12, debian13, rocky 8, rocky9, opensuse tumbleweed, ubuntu 20, ubuntu 22,
+debian12, debian13, rocky 8, rocky9, opensuse tumbleweed, ubuntu 22,
 ubuntu 24, incus images by packer.
 
 This images will have:
@@ -46,8 +46,6 @@ masum@masum:~$ sudo incus image list
 | rocky8-packer   | e80e413111c0 | no     | incus rocky 8 repackage with Packer         | aarch64      | CONTAINER | 223.09MiB | 2024/06/07 22:10 UTC |
 +-----------------+--------------+--------+---------------------------------------------+--------------+-----------+-----------+----------------------+
 | rocky9-packer   | 4d668a992809 | no     | incus rocky 9 repackage with Packer         | aarch64      | CONTAINER | 164.42MiB | 2024/06/07 22:12 UTC |
-+-----------------+--------------+--------+---------------------------------------------+--------------+-----------+-----------+----------------------+
-| ubu20-packer    | 9f2cfcb2231a | no     | incus ubuntu 20 repackage with Packer       | aarch64      | CONTAINER | 178.59MiB | 2024/06/06 14:32 UTC |
 +-----------------+--------------+--------+---------------------------------------------+--------------+-----------+-----------+----------------------+
 | ubu22-packer    | 790c1eeeb704 | no     | incus ubuntu 22 repackage with Packer       | aarch64      | CONTAINER | 190.84MiB | 2024/06/06 15:03 UTC |
 +-----------------+--------------+--------+---------------------------------------------+--------------+-----------+-----------+----------------------+

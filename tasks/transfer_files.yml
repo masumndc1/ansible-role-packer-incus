@@ -68,12 +68,6 @@
     dest: /tmp/rocky9.pkr.hcl
   tags: rocky9
 
-- name: transfer ubuntu20 packer template file
-  template:
-    src: templates/ubuntu20.pkr.hcl.j2
-    dest: /tmp/ubuntu20.pkr.hcl
-  tags: ubu20
-
 - name: transfer ubuntu22 packer template file
   template:
     src: templates/ubuntu22.pkr.hcl.j2
