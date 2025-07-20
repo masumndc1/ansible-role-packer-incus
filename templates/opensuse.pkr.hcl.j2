@@ -10,7 +10,7 @@ packer {
 source "incus" "incus-opensuse" {
   {% if ansible_facts['architecture'] == 'aarch64' %}
   image = "images:opensuse/tumbleweed/arm64"
-  {% elif ansible_facts['architecture'] == 'amd64' %}
+  {% elif ansible_facts['architecture'] == 'x86_64' %}
   image = "images:opensuse/tumbleweed/amd64"
   {% endif %}
   output_image = "opensuse-packer"

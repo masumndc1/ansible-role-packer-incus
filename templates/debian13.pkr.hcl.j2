@@ -10,7 +10,7 @@ packer {
 source "incus" "incus-debian13" {
   {% if ansible_facts['architecture'] == 'aarch64' %}
   image = "images:debian/trixie/arm64"
-  {% elif ansible_facts['architecture'] == 'amd64' %}
+  {% elif ansible_facts['architecture'] == 'x86_64' %}
   image = "images:debian/trixie/amd64"
   {% endif %}
   output_image = "debian13-packer"

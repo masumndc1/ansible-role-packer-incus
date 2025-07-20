@@ -10,7 +10,7 @@ packer {
 source "incus" "incus-ubu20" {
   {% if ansible_facts['architecture'] == 'aarch64' %}
   image = "images:ubuntu/focal/arm64"
-  {% elif ansible_facts['architecture'] == 'amd64' %}
+  {% elif ansible_facts['architecture'] == 'x86_64' %}
   image = "images:ubuntu/focal/amd64"
   {% endif %}
   output_image = "ubu20-packer"
